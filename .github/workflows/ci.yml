@@ -15,7 +15,7 @@ jobs:
 
  
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     
     services:
       postgres:
@@ -41,8 +41,17 @@ jobs:
       with:
         go-version: '1.22'
 
+
+    - name: Set up Scoop  
+      run: |  
+        # Use [[ character to avoid errors if Scoop is already installed  
+        [ -d "$env:USERPROFILE\scoop" ] || powershell -Command "Set-ExecutionPolicy RemoteSigned -scope CurrentUser"  
+        [ -d "$env:USERPROFILE\scoop" ] || powershell -Command "iwr -useb get.scoop.sh | iex"  
+
     - name: install migrate
-      run: scoop install migrate
+      run: |  
+        $env:Path += ";$env:USERPROFILE\scoop\shims"  
+        scoop install migrate 
     
     - name:  migrate up 
       run: migrate -path db/migration -database "postgresql://root:mysecretpassword@localhost:5432/simple_bank?sslmode=disable" -verbose up
