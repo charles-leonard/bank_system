@@ -11,8 +11,28 @@ on:
 
 jobs:
 
+
+
+ 
   build:
     runs-on: ubuntu-latest
+    
+    services:
+      postgres:
+          # Docker Hub image
+          image: postgres:12
+
+          # Provide the password for postgres
+          env:
+            POSTGRES_USER: root
+            POSTGRES_PASSWORD: mysecretpassword
+            POSTGRES_DB: simple_bank
+          options: >-
+            --health-cmd pg_isready
+            --health-interval 10s
+            --health-timeout 5s
+            --health-retries 5  
+        
     steps:
     - uses: actions/checkout@v4
 
@@ -21,8 +41,12 @@ jobs:
       with:
         go-version: '1.22'
 
-    - name: Build
-      run: go build -v ./...
+    - name: install migrate
+      run: scoop install migrate
+    
+    - name:  migrate up 
+      run: migrate -path db/migration -database "postgresql://root:mysecretpassword@localhost:5432/simple_bank?sslmode=disable" -verbose up
+    
 
     - name: Test
       run: go test -v ./...
