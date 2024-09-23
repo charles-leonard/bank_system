@@ -7,6 +7,8 @@ import (
 )
 
 type Store interface {
+	Querier
+	TransferTx(ctx context.Context, arg TransferTXParams) (TransferTxResult, error)
 }
 
 type SQLStore struct {
