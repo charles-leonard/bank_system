@@ -10,9 +10,9 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	mockdb "github.com/alex-davis-ang/bank_app/db/mock"
-	db "github.com/alex-davis-ang/bank_app/db/sqlc"
-	"github.com/alex-davis-ang/bank_app/util"
+	mockdb "github.com/charles-leonard/bank_system/db/mock"
+	db "github.com/charles-leonard/bank_system/db/sqlc"
+	"github.com/charles-leonard/bank_system/util"
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/require"
 )

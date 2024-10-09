@@ -1,10 +1,10 @@
-module github.com/alex-davis-ang/bank_app
+module github.com/charles-leonard/bank_system
 
 go 1.22.4
 
 require (
 	github.com/gin-gonic/gin v1.10.0
-	github.com/go-playground/validator/v10 v10.20.0
+	github.com/go-playground/validator/v10 v10.22.1
 	github.com/golang/mock v1.6.0
 	github.com/lib/pq v1.10.9
 	github.com/spf13/viper v1.19.0

@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/alex-davis-ang/bank_app/util"
+	"github.com/charles-leonard/bank_system/util"
 	"github.com/stretchr/testify/require"
 )
 

@@ -4,9 +4,9 @@ import (
 	"database/sql"
 	"log"
 
-	"github.com/alex-davis-ang/bank_app/api"
-	db "github.com/alex-davis-ang/bank_app/db/sqlc"
-	"github.com/alex-davis-ang/bank_app/util"
+	"github.com/charles-leonard/bank_system/api"
+	db "github.com/charles-leonard/bank_system/db/sqlc"
+	"github.com/charles-leonard/bank_system/util"
 	_ "github.com/lib/pq"
 )
 
