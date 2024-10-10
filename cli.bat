@@ -108,6 +108,7 @@ FOR NO KEY UPDATE   ---------- means not update key  will work for foriegn keys 
 9. Mock tester
 
 mockgen -package mockdb -destination db/mock/store.go github.com/charles-leonard/bank_system/db/sqlc Store
+at here, Store means interface name
 
 
                 
