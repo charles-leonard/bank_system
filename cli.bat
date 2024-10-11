@@ -120,3 +120,6 @@ migrate create -ext sql -dir db/migration -seq add_users
 
 migrate -path db/migration -database "postgresql://root:mysecretpassword@localhost:5432/simple_bank?sslmode=disable" -verbose up 1
 migrate -path db/migration -database "postgresql://root:mysecretpassword@localhost:5432/simple_bank?sslmode=disable" -verbose down 1
+
+
+11. jwt and paseto go lang package added
