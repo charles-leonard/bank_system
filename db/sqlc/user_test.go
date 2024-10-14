@@ -9,7 +9,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func createRandomUser(t *testing.T) User {
+func CreateRandomUser(t *testing.T) User {
 	hashedPassword, err := util.HashPassword(util.RandomString(6))
 	require.NoError(t, err)
 	arg := CreateUserParams{
@@ -34,11 +34,11 @@ func createRandomUser(t *testing.T) User {
 }
 
 func TestCreateUser(t *testing.T) {
-	createRandomUser(t)
+	CreateRandomUser(t)
 }
 
 func TestGetUser(t *testing.T) {
-	user1 := createRandomUser(t)
+	user1 := CreateRandomUser(t)
 	user2, err := testQueries.GetUser(context.Background(), user1.Username)
 	require.NoError(t, err)
 	require.NotEmpty(t, user2)
